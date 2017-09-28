@@ -73,6 +73,9 @@ module.exports = function () {
             this.options.refreshPerform.call(this, {
                 success: function () {
                     this.options.checkAuthenticated.call(_this, cb);
+                },
+                error: function () {
+                    _this.logout({makeRequest: false});
                 }
             });
 
